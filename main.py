@@ -5,11 +5,11 @@ from datetime import datetime, timedelta
 from flask import Flask, redirect, request, jsonify, session
 
 app = Flask(__name__)
-app.secret_key = '0297f88d68254c1f995e76273a0979b'
+app.secret_key = '0297f88d68254c1f995e76273a0979b' # This is a random key, you can use any key you want
 
-CLIENT_ID = 'f4a5785ae1d44ca99feccfd18970902c'
-CLIENT_SECRET = 'e3dd11a5913645e1aeaddbd648971a4c'
-REDIRECT_URI = 'http://localhost:5000/callback'
+CLIENT_ID = 'f4a5785ae1d44ca99feccfd18970902c'   # Use your client ID
+CLIENT_SECRET = 'e3dd11a5913645e1aeaddbd648971a4c' # Use your client secret
+REDIRECT_URI = 'http://localhost:5000/callback' # Create your app on the Spotify developer page
 
 
 AUTH_URL = 'https://accounts.spotify.com/authorize'
@@ -18,11 +18,11 @@ API_BASE_URL = 'https://api.spotify.com/v1/'
 
 @app.route('/')
 def index():
-    return "Welcome to my Spotify App <A href = '/login'>Login with Spotify</a>"
+    return "Welcome to my Spotify App <A href = '/login'>Login with Spotify credentials</a>"
 
 @app.route('/login')
 def login():
-    scope = 'user-read-private user-read-email'
+    scope = 'user-read-private user-read-email' # This is what we are requesting Spotify to have access to
 
     params = {
         'client_id': CLIENT_ID,
